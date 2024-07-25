@@ -1,10 +1,11 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+  font-family: 'Inter';
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,11 +29,57 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.checked {
+  text-decoration-line: line-through;
+  text-decoration-color: gray;
+  opacity: 0.7;
+}
+
+.todoTitle {
+  margin-bottom: 40px;
+}
+
+input[type='text'] {
+  width: 70%;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 10px;
+  font-size: 16px;
+  font-family: 'Inter';
+  /* background-color: #f3f3f3; */
+}
+
+.containterAddTask {
+  margin-bottom: 60px;
+}
+
+.containerTask {
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 600px;
+  max-width: 900px;
+  width: auto;
+}
+
+.firstDiv {
+  margin-right: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+}
+
+.taskItem {
+  width: 300px;
+}
+
+.containerActions {
+  display: 'flex'; 
+  flex-direction: 'row';
+  justify-content: 'center'; 
+  align-items: 'center';
 }
