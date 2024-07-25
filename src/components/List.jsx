@@ -3,6 +3,7 @@ import Task from './Task';
 import AddTask from './AddTask';
 import { EditingContext } from './IsEditing';
 import { v4 as v4uuid } from 'uuid'
+import { Container, Box } from '@mui/material';
 
 const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
@@ -107,25 +108,26 @@ export default function List() {
     }
 
     return (
-        <div className='App-Content'>
-            <div>
-                <h3 className='todoTitle'>Lista de Tarefas</h3>
-                <AddTask onHandleAdd={handleAddTask}></AddTask>
-            </div>
-
-            {lista?.map((item) =>
-                <div>
-                    <Task
-                    className='taskItem'
-                    key={item.id}
-                    task={item}
-                    handleRemoveTask={handleRemoveTask}
-                    handleEditTask={handleEditTask}
-                    handleSaveTask={handleSaveTask}
-                    handleCheckboxChange={handleCheckboxChange}
-                    ></Task>
+        <Container className='App-Content'>
+            <Box sx={{  height: '100vh' }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div className='containerTitle'>
+                    <h3 className='todoTitle'>Lista de Tarefas</h3>
+                    <AddTask onHandleAdd={handleAddTask}></AddTask>
                 </div>
-            )}
-        </div>
+                <div style={{paddingBottom: '15px' }}>
+                    {lista?.map((item) =>
+                        <Task
+                            className='taskItem'
+                            key={item.id}
+                            task={item}
+                            handleRemoveTask={handleRemoveTask}
+                            handleEditTask={handleEditTask}
+                            handleSaveTask={handleSaveTask}
+                            handleCheckboxChange={handleCheckboxChange}
+                        ></Task>
+                    )}
+                </div>
+            </Box>
+        </Container>
     )
 }

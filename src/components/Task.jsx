@@ -29,27 +29,26 @@ export default function Task({ ...props }) {
     }, [task.description])
 
     return (
-        <>
-            <div className='containerTask'>
-
-                <div className='taskContent'>
+        <div>
+            
+                <div className='containerTask'>
 
                     <div className='firstDiv'>
 
                         <Checkbox
-                            checked={isChecked ? true : false}
-                            icon={<CheckCircleOutlineRoundedIcon />}
-                            checkedIcon={<CheckCircleRoundedIcon />}
-                            onChange={(e) => {
-                                setIsChecked(e.target.checked)
-                                props.handleCheckboxChange(task.id, e.target.checked)
-                            }}
-                            sx={{ color: grey[300], '& .MuiSvgIcon-root': { fontSize: 28 } }}
-                        />
-                        {isEditing && taskHasBeenEdited === task.id ?
-                            <input className='inputEditTask' type='text' value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> :
-                            <span className={isChecked ? 'checked' : ''}> {task.description}</span>
-                        }
+                                checked={isChecked ? true : false}
+                                icon={<CheckCircleOutlineRoundedIcon />}
+                                checkedIcon={<CheckCircleRoundedIcon />}
+                                onChange={(e) => {
+                                    setIsChecked(e.target.checked)
+                                    props.handleCheckboxChange(task.id, e.target.checked)
+                                }}
+                                sx={{ color: grey[300], '& .MuiSvgIcon-root': { fontSize: 28 } }}
+                            />
+                            {isEditing && taskHasBeenEdited === task.id ?
+                                <input className='inputEditTask' type='text' value={inputValue} onChange={(e) => setInputValue(e.target.value)} /> :
+                                <span className={isChecked ? 'checked' : ''}> {task.description}</span>
+                            }
 
                     </div>
 
@@ -76,12 +75,13 @@ export default function Task({ ...props }) {
 
                     </div>
 
+
                 </div>
 
-            </div>
+                <Divider variant='middle' />
+            
 
-            <Divider variant='middle' />
 
-        </>
+        </div>
     )
 }

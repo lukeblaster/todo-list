@@ -3,68 +3,74 @@
   src: url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');;
 }
 
-html, body  {
-  height: 100%;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 .App {
-  text-align: center;
   font-family: 'Inter';
+  /* overflow-y: auto; */
 }
-
-/* .App-header {
-  background-color: #282c34;
-  height: 100vh;
-  width: 100vw;
-  max-width: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
 
 .App-header {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: #282c34;
   color: white;
+  overflow-y: auto;
   font-size: calc(10px + 2vmin);
 }
 
 .App-Content {
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
-
-/* .containerTask {
-  display: flex;
-  text-align: left;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 80%;
-  max-width: 90%;
-  margin: 5px;
-} */
 
 .containerTask {
   margin: 2px 8px;
+  min-width: 550px;
   max-width: 600px;
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  flex: 1;
+}
+
+input[type='text'] {
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-family: 'Inter';
+  background-color: #f3f3f3;
+  min-width: 50%;
+}
+
+/* Estilos para telas com largura máxima de 800px */
+@media (max-width: 800px) {
+  .containerTitle {
+    width: 15%;
+  }
+  .containerTask {
+    min-width: 0px;
+    width: 85vw;
+  }
+  .inputAddTask {
+    width: 70%;
+  }
 }
 
 .taskContent {
   display: flex;
+  flex: 1;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -78,28 +84,27 @@ html, body  {
   opacity: 0.7;
 }
 
-input[type='text'] {
-  padding: 8px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-  font-family: 'Inter';
-  background-color: #f3f3f3;
+
+
+.containerTitle {
+  width: 100%;
 }
 
 .containterAddTask {
   margin-bottom: 60px;
+  width: 100%;
 }
 
 .firstDiv {
   display: flex;
   align-items: center;
-  flex: 1;
+  flex-direction: row;
 }
 
-/* .containerActions {
-  display: 'flex'; 
-  flex-direction: 'row';
-  justify-content: 'center'; 
-  align-items: 'center';
-} */
+.containerActions {
+  display: flex; 
+  flex-direction: row;
+  justify-content: center; 
+  align-items: center;
+  margin-left: 10px;
+}
