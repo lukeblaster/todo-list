@@ -8,7 +8,7 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || []
 
 console.log(tasks)
 
-function taskReducer (lista, action) {
+function taskReducer(lista, action) {
     let newList = []
 
     switch (action.type) {
@@ -25,19 +25,19 @@ function taskReducer (lista, action) {
             localStorage.setItem('tasks', JSON.stringify(newList))
 
             return newList;
-        
+
         case 'REMOVE_TASK':
-            newList = lista.filter(l =>  l.id !== action.id )
+            newList = lista.filter(l => l.id !== action.id)
 
             localStorage.setItem('tasks', JSON.stringify(newList))
 
             return newList;
-        
+
         case 'SAVE_TASK':
             newList = lista.map(l => {
-                if(l.id === action.id) {
-                    return {...l, description: action.description}
-                    
+                if (l.id === action.id) {
+                    return { ...l, description: action.description }
+
                 } else {
                     return l
                 }
@@ -49,9 +49,9 @@ function taskReducer (lista, action) {
 
         case 'CHANGE_CHECKBOX':
             newList = lista.map(l => {
-                if(l.id === action.id) {
-                    return {...l, checkboxValue: action.checkboxValue}
-                    
+                if (l.id === action.id) {
+                    return { ...l, checkboxValue: action.checkboxValue }
+
                 } else {
                     return l
                 }
@@ -64,14 +64,14 @@ function taskReducer (lista, action) {
         default:
             break;
     }
-} 
+}
 
 export default function List() {
     const [lista, dispatch] = useReducer(taskReducer, tasks);
-    const {isEditing, setIsEditing, setTaskHasBeenEdited} = useContext(EditingContext)
+    const { isEditing, setIsEditing, setTaskHasBeenEdited } = useContext(EditingContext)
 
-    function handleAddTask (inputValue) {
-        if(inputValue === '') {
+    function handleAddTask(inputValue) {
+        if (inputValue === '') {
             return
         }
 
@@ -85,7 +85,7 @@ export default function List() {
     }
 
     function handleEditTask(taskId) {
-        if(isEditing === true) {
+        if (isEditing === true) {
             console.log("Uma task já está sendo editada.")
 
             return null;
@@ -97,30 +97,35 @@ export default function List() {
 
     function handleSaveTask(taskId, taskDescription) {
         dispatch({ type: 'SAVE_TASK', id: taskId, description: taskDescription })
-        
+
         setTaskHasBeenEdited(taskId)
         setIsEditing(!isEditing)
     }
 
-    function handleCheckboxChange (taskId, checkboxValue) {
-        dispatch({ type: 'CHANGE_CHECKBOX', id: taskId, checkboxValue: checkboxValue})
+    function handleCheckboxChange(taskId, checkboxValue) {
+        dispatch({ type: 'CHANGE_CHECKBOX', id: taskId, checkboxValue: checkboxValue })
     }
 
     return (
-        <div>
-            <h3 className='todoTitle'>Lista de Tarefas</h3>
-            <AddTask onHandleAdd={handleAddTask}></AddTask>
+        <div className='App-Content'>
+            <div>
+                <h3 className='todoTitle'>Lista de Tarefas</h3>
+                <AddTask onHandleAdd={handleAddTask}></AddTask>
+            </div>
 
-            {lista?.map((item) => 
-            <Task 
-                className='taskItem'
-                key={item.id} 
-                task={item} 
-                handleRemoveTask={handleRemoveTask}
-                handleEditTask={handleEditTask}
-                handleSaveTask={handleSaveTask}
-                handleCheckboxChange={handleCheckboxChange}
-            ></Task>)}
+            {lista?.map((item) =>
+                <div>
+                    <Task
+                    className='taskItem'
+                    key={item.id}
+                    task={item}
+                    handleRemoveTask={handleRemoveTask}
+                    handleEditTask={handleEditTask}
+                    handleSaveTask={handleSaveTask}
+                    handleCheckboxChange={handleCheckboxChange}
+                    ></Task>
+                </div>
+            )}
         </div>
     )
 }

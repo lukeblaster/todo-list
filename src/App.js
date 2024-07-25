@@ -5,11 +5,11 @@ import IsEditing from './components/IsEditing';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <IsEditing>
-          <List></List>
-        </IsEditing>
-      </header>
+        <div className="App-header">
+          <IsEditing>
+            <List></List>
+          </IsEditing>
+        </div>
     </div>
   );
 }

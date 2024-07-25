@@ -3,30 +3,73 @@
   src: url('https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap');;
 }
 
+html, body  {
+  height: 100%;
+}
+
 .App {
   text-align: center;
   font-family: 'Inter';
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  font-size: calc(10px + 2vmin);
 }
 
-.App-link {
-  color: #61dafb;
+.App-Content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .containerTask {
+  display: flex;
+  text-align: left;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  max-width: 90%;
+  margin: 5px;
+} */
+
+.containerTask {
+  margin: 2px 8px;
+  max-width: 600px;
+  justify-content: space-between;
+}
+
+.taskContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoTitle {
+  margin-bottom: 40px;
 }
 
 .checked {
@@ -35,51 +78,28 @@
   opacity: 0.7;
 }
 
-.todoTitle {
-  margin-bottom: 40px;
-}
-
 input[type='text'] {
-  width: 70%;
   padding: 8px;
   border-radius: 10px;
   border: none;
-  margin-right: 10px;
   font-size: 16px;
   font-family: 'Inter';
-  /* background-color: #f3f3f3; */
+  background-color: #f3f3f3;
 }
 
 .containterAddTask {
   margin-bottom: 60px;
 }
 
-.containerTask {
-  display: flex;
-  text-align: left;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 600px;
-  max-width: 900px;
-  width: auto;
-}
-
 .firstDiv {
-  margin-right: 60px;
   display: flex;
-  flex-direction: row;
   align-items: center;
   flex: 1;
 }
 
-.taskItem {
-  width: 300px;
-}
-
-.containerActions {
+/* .containerActions {
   display: 'flex'; 
   flex-direction: 'row';
   justify-content: 'center'; 
   align-items: 'center';
-}
+} */
